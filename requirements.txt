@@ -1,5 +1,7 @@
 elevenlabs
 fastapi
 jinja2
+openai
 python-dotenv
+python-multipart
 uvicorn

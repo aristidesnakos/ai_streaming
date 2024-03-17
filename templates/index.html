@@ -5,9 +5,12 @@
     <script>
       async function generateAudio() {
         const text = document.getElementById("text-input").value;
+        const formData = new FormData();
+        formData.append("text", text);
+
         const response = await fetch("/generate_audio", {
           method: "POST",
-          body: new FormData(document.getElementById("audio-form")),
+          body: formData,
         });
 
         const audioStream = response.body;
