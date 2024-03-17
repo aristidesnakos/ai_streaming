@@ -9,7 +9,6 @@ from config.env_var import XI_LABS_API_KEY
 def is_installed(lib_name):
     return shutil.which(lib_name) is not None
 
-
 async def text_chunker(chunks):
     """Split text into chunks, ensuring to not break sentences."""
     splitters = (".", ",", "?", "!", ";", ":", "—", "-", "(", ")", "[", "]", "}", " ")
