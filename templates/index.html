@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eleven Labs Streaming Example</title>
+    <script>
+      async function generateAudio() {
+        const text = document.getElementById("text-input").value;
+        const response = await fetch("/generate_audio", {
+          method: "POST",
+          body: new FormData(document.getElementById("audio-form")),
+        });
+
+        const audioStream = response.body;
+        const audioPlayer = document.getElementById("audio-player");
+        audioPlayer.src = window.URL.createObjectURL(audioStream);
+        audioPlayer.play();
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Eleven Labs Streaming Example</h1>
+    <form id="audio-form">
+      <input type="text" id="text-input" placeholder="Enter text" />
+      <button type="button" onclick="generateAudio()">Generate Audio</button>
+    </form>
+    <audio id="audio-player" controls></audio>
+  </body>
+</html>
